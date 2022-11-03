@@ -2,6 +2,7 @@ import SwiftUI
 
 struct Menu: ViewModifier {
     @State private var showMenu = false
+    @State private var maxWidth: CGFloat = 0
 
     var plusButton: some View {
         Button {
@@ -32,8 +33,15 @@ struct Menu: ViewModifier {
             let delay = showMenu ? (items.count-1-offset) : offset
             VStack {
                 if showMenu {
-                    Label(element.0, systemImage: element.systemImage)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                    Label(title: {
+                        Text(element.0)
+                            .fixedSize()
+                            .measureMaxWidth()
+                            .frame(width: maxWidth, alignment: .leading)
+                    }, icon: {
+                        Image(systemName: element.systemImage)
+                    })
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }
             .animation(.default.delay(Double(delay) * 0.05), value: showMenu)
@@ -62,7 +70,12 @@ struct Menu: ViewModifier {
                 .padding(.trailing, 20)
                 .padding(.bottom, 60)
             }
+            .onPreferenceChange(MaxWidthKey.self) {
+                maxWidth = $0
+
+            }
             .animation(.default, value: showMenu)
+            .animation(nil, value: maxWidth)
     }
 }
 
@@ -71,7 +84,6 @@ struct MenuLabelStyle: LabelStyle {
         HStack(spacing: 0) {
             configuration.title
                 .font(.footnote)
-                .fixedSize()
                 .padding(.vertical, 4)
                 .padding(.horizontal, 10)
             configuration.icon
