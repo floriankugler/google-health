@@ -2,7 +2,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Dashboard()
+        TabView {
+            Dashboard()
+                .tabItem {
+                    Label("Home", systemImage: "house")
+                }
+            Friends()
+                .tabItem {
+                    Label("Friends", systemImage: "person.2.wave.2")
+                }
+        }
     }
 }
 

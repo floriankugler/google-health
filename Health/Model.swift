@@ -42,5 +42,6 @@ extension ActivityItem {
         .init(user: .sample, type: .run, date: .now.addingTimeInterval(-6*24*3600), liked: false),
         .init(user: .sample2, type: .ride, date: .now.addingTimeInterval(-7*24*3600), liked: true),
     ]
-    
+
+    static let url = baseURL.appendingPathComponent("data.json")
 }
