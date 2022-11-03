@@ -16,7 +16,7 @@ struct DateRangePicker: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            SimplePicker(items: DateRange.allCases, id: \.self, selection: $interval.range, view: { r in
+            StylableSimplePicker(items: DateRange.allCases, id: \.self, selection: $interval.range, view: { r in
                 Text(r.rawValue.capitalized)
                     .tag(r)
             })

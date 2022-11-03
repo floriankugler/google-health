@@ -12,6 +12,7 @@ extension ActivityType {
 
 struct ActivityCell: View {
     var activity: ActivityItem
+    @Environment(\.stylesheet.likeColor) private var likeColor
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -26,7 +27,7 @@ struct ActivityCell: View {
                         Spacer()
                         Image(systemName: "heart")
                             .symbolVariant(activity.liked ? .fill : .none)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(likeColor)
                     }
                 }
             }
@@ -50,5 +51,6 @@ struct ActivityCellPreview: PreviewProvider {
             ActivityCell(activity: ActivityItem.sample[1])
         }
         .padding()
+        .useStylesheet()
     }
 }
