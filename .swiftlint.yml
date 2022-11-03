@@ -1,0 +1,28 @@
+disabled_rules:
+  - trailing_comma
+  - identifier_name
+opt_in_rules:
+  - file_header
+file_header:
+  forbidden_pattern: /./
+custom_rules:
+  state_private:
+      name: "Private SwiftUI State"
+      regex: "\\@State\\s*var"
+      message: "SwiftUI @State variables should always be marked private."
+      severity: warning
+  state_object_private:
+      name: "Private SwiftUI StateObject"
+      regex: "\\@StateObject\\s*var"
+      message: "SwiftUI @StateObject variables should always be marked private."
+      severity: warning
+  environment_private:
+      name: "Private SwiftUI Environment"
+      regex: "\\@Environment.*\\)\\s*var"
+      message: "SwiftUI @Environment variables should always be marked private."
+      severity: warning
+  scaled_metric_private:
+      name: "Private SwiftUI ScaledMetric"
+      regex: "\\@ScaledMetric.*\\)\\s*var"
+      message: "SwiftUI @ScaledMetric variables should always be marked private."
+      severity: warning
