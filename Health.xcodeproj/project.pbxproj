@@ -10,6 +10,7 @@
 		1738AC2C2913BFC000E7C4C7 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738AC2B2913BFC000E7C4C7 /* Menu.swift */; };
 		1738AC2E2913C3BD00E7C4C7 /* ScaleUpAndDownEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738AC2D2913C3BD00E7C4C7 /* ScaleUpAndDownEffect.swift */; };
 		1738AC302913C43400E7C4C7 /* AnimatedUnderlineStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738AC2F2913C43400E7C4C7 /* AnimatedUnderlineStyle.swift */; };
+		1738AC322913C7BA00E7C4C7 /* EqualWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1738AC312913C7BA00E7C4C7 /* EqualWidth.swift */; };
 		17DC1C242913AE4B00E1EEDB /* HealthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C232913AE4B00E1EEDB /* HealthApp.swift */; };
 		17DC1C262913AE4B00E1EEDB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C252913AE4B00E1EEDB /* ContentView.swift */; };
 		17DC1C282913AE4D00E1EEDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17DC1C272913AE4D00E1EEDB /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		1738AC2B2913BFC000E7C4C7 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		1738AC2D2913C3BD00E7C4C7 /* ScaleUpAndDownEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScaleUpAndDownEffect.swift; sourceTree = "<group>"; };
 		1738AC2F2913C43400E7C4C7 /* AnimatedUnderlineStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedUnderlineStyle.swift; sourceTree = "<group>"; };
+		1738AC312913C7BA00E7C4C7 /* EqualWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualWidth.swift; sourceTree = "<group>"; };
 		17DC1C202913AE4B00E1EEDB /* Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Health.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17DC1C232913AE4B00E1EEDB /* HealthApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthApp.swift; sourceTree = "<group>"; };
 		17DC1C252913AE4B00E1EEDB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				17DC1C492913BB2D00E1EEDB /* Stylesheet.swift */,
 				17DC1C4D2913BE4700E1EEDB /* Badge.swift */,
 				1738AC2B2913BFC000E7C4C7 /* Menu.swift */,
+				1738AC312913C7BA00E7C4C7 /* EqualWidth.swift */,
 				1738AC2D2913C3BD00E7C4C7 /* ScaleUpAndDownEffect.swift */,
 				1738AC2F2913C43400E7C4C7 /* AnimatedUnderlineStyle.swift */,
 				17DC1C272913AE4D00E1EEDB /* Assets.xcassets */,
@@ -213,6 +216,7 @@
 				17DC1C462913B8F400E1EEDB /* DateStepper.swift in Sources */,
 				17DC1C4C2913BC9200E1EEDB /* StylablePicker.swift in Sources */,
 				17DC1C4E2913BE4700E1EEDB /* Badge.swift in Sources */,
+				1738AC322913C7BA00E7C4C7 /* EqualWidth.swift in Sources */,
 				17DC1C242913AE4B00E1EEDB /* HealthApp.swift in Sources */,
 				17DC1C3B2913B08D00E1EEDB /* Card.swift in Sources */,
 				17DC1C412913B18F00E1EEDB /* RemoteImage.swift in Sources */,
