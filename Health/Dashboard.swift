@@ -18,25 +18,24 @@ struct ProgressCircle: View {
 }
 
 struct Dashboard: View {
-    let stepColor = Color.blue
-    let heartColor = Color.green
+    @Environment(\.stylesheet) private var stylesheet
 
     var indicator: some View {
         ProgressCircle(value: 0.7)
-            .foregroundColor(heartColor)
+            .foregroundColor(stylesheet.heartColor)
             .overlay {
                 ProgressCircle(value: 0.3)
-                    .foregroundColor(stepColor)
+                    .foregroundColor(stylesheet.stepColor)
                     .padding(12)
             }
             .overlay {
                 VStack {
                     Text("133")
                         .font(.title.bold())
-                        .foregroundColor(heartColor)
+                        .foregroundColor(stylesheet.heartColor)
                     Text("2496")
                         .font(.footnote.bold())
-                        .foregroundColor(stepColor)
+                        .foregroundColor(stylesheet.stepColor)
                 }
             }
     }
@@ -45,12 +44,12 @@ struct Dashboard: View {
         HStack(spacing: 10) {
             HStack(spacing: 3) {
                 Image(systemName: "heart")
-                    .foregroundColor(heartColor)
+                    .foregroundColor(stylesheet.heartColor)
                 Text("Heart Pts")
             }
             HStack(spacing: 3) {
                 Image(systemName: "shoeprints.fill")
-                    .foregroundColor(stepColor)
+                    .foregroundColor(stylesheet.stepColor)
                 Text("Steps")
             }
         }
@@ -74,12 +73,13 @@ struct Dashboard: View {
             .padding()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(.primary.opacity(0.05))
+        .background(stylesheet.dashboardBackgroundColor)
     }
 }
 
 struct Dashboard_Previews: PreviewProvider {
     static var previews: some View {
         Dashboard()
+            .useStylesheet()
     }
 }
