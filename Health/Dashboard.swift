@@ -52,6 +52,7 @@ struct Dashboard: View {
                     .foregroundColor(stylesheet.stepColor)
                 Text("Steps")
             }
+            .badgeIndicator(3)
         }
         .font(.footnote.weight(.medium))
     }
