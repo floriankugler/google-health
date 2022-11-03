@@ -3,10 +3,12 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Dashboard()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
+            NavigationStack {
+                Dashboard()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
             Friends()
                 .tabItem {
                     Label("Friends", systemImage: "person.2.wave.2")
