@@ -60,8 +60,10 @@ struct Dashboard: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                indicator
-                    .frame(width: 120, height: 120)
+                NavigationLink(destination: Detail()) {
+                    indicator
+                        .frame(width: 120, height: 120)
+                }
                 indicatorLegend
                 Card {
                     Text("Check your heart rate")
