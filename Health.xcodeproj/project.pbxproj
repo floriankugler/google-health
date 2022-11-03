@@ -14,6 +14,8 @@
 		17DC1C352913AECC00E1EEDB /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C322913AECC00E1EEDB /* DateModel.swift */; };
 		17DC1C362913AECC00E1EEDB /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C332913AECC00E1EEDB /* Model.swift */; };
 		17DC1C372913AECC00E1EEDB /* WithState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C342913AECC00E1EEDB /* WithState.swift */; };
+		17DC1C392913B00D00E1EEDB /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C382913B00D00E1EEDB /* Dashboard.swift */; };
+		17DC1C3B2913B08D00E1EEDB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C3A2913B08D00E1EEDB /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		17DC1C322913AECC00E1EEDB /* DateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		17DC1C332913AECC00E1EEDB /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		17DC1C342913AECC00E1EEDB /* WithState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WithState.swift; sourceTree = "<group>"; };
+		17DC1C382913B00D00E1EEDB /* Dashboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		17DC1C3A2913B08D00E1EEDB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				17DC1C322913AECC00E1EEDB /* DateModel.swift */,
 				17DC1C332913AECC00E1EEDB /* Model.swift */,
 				17DC1C342913AECC00E1EEDB /* WithState.swift */,
+				17DC1C382913B00D00E1EEDB /* Dashboard.swift */,
+				17DC1C3A2913B08D00E1EEDB /* Card.swift */,
 				17DC1C272913AE4D00E1EEDB /* Assets.xcassets */,
 				17DC1C292913AE4D00E1EEDB /* Health.entitlements */,
 				17DC1C2A2913AE4D00E1EEDB /* Preview Content */,
@@ -150,8 +156,10 @@
 			files = (
 				17DC1C262913AE4B00E1EEDB /* ContentView.swift in Sources */,
 				17DC1C242913AE4B00E1EEDB /* HealthApp.swift in Sources */,
+				17DC1C3B2913B08D00E1EEDB /* Card.swift in Sources */,
 				17DC1C352913AECC00E1EEDB /* DateModel.swift in Sources */,
 				17DC1C372913AECC00E1EEDB /* WithState.swift in Sources */,
+				17DC1C392913B00D00E1EEDB /* Dashboard.swift in Sources */,
 				17DC1C362913AECC00E1EEDB /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
