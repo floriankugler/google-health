@@ -23,9 +23,21 @@ struct Menu: ViewModifier {
 
     @ViewBuilder
     var menu: some View {
-        Label("Add sleep", systemImage: "sleep")
-        Label("Add weight", systemImage: "scalemass")
-        Label("Add activity", systemImage: "pencil")
+        let items = [
+            ("Add sleep", systemImage: "sleep"),
+            ("Add weight", systemImage: "scalemass"),
+            ("Add activity", systemImage: "pencil")
+        ]
+        ForEach(Array(items.enumerated()), id: \.element.0) { (offset, element) in
+            let delay = showMenu ? (items.count-1-offset) : offset
+            VStack {
+                if showMenu {
+                    Label(element.0, systemImage: element.systemImage)
+                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                }
+            }
+            .animation(.default.delay(Double(delay) * 0.05), value: showMenu)
+        }
     }
 
     func body(content: Content) -> some View {
@@ -42,10 +54,8 @@ struct Menu: ViewModifier {
             }
             .overlay(alignment: .bottomTrailing) {
                 VStack(alignment: .menuAlignment, spacing: 12) {
-                    if showMenu {
-                        menu
-                            .labelStyle(MenuLabelStyle())
-                    }
+                    menu
+                        .labelStyle(MenuLabelStyle())
                     plusButton
                         .padding(.top, 12)
                 }
