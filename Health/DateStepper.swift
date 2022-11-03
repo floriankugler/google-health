@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Interval {
+struct Interval: Hashable {
     var date: Date
     var range: DateRange
 }
@@ -20,6 +20,8 @@ struct DateRangePicker: View {
                 Text(r.rawValue.capitalized)
                     .tag(r)
             })
+            .animation(.default, value: interval)
+            .customPickerStyle(.animatedUnderline)
             .zIndex(1)
 
             Rectangle()

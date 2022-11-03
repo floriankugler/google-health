@@ -18,6 +18,7 @@ struct Menu: ViewModifier {
                 }
         }
         .buttonStyle(.plain)
+        .scaleUpAndDownEffect(count: showMenu ? 1 : 0)
     }
 
     @ViewBuilder
@@ -51,6 +52,7 @@ struct Menu: ViewModifier {
                 .padding(.trailing, 20)
                 .padding(.bottom, 60)
             }
+            .animation(.default, value: showMenu)
     }
 }
 
