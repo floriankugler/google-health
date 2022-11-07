@@ -14,6 +14,7 @@ struct ContentView: View {
                     Label("Friends", systemImage: "person.2.wave.2")
                 }
         }
+        .modifier(Menu())
     }
 }
 
