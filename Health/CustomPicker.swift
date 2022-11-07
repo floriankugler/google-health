@@ -1,36 +1,95 @@
+import Foundation
 import SwiftUI
 
+public struct Configuration {
+    public var namespace: Namespace.ID
+    public var isSelected: Bool
+    public var label: AnyView
+}
+
+public protocol CustomPickerStyle {
+    associatedtype Body: View
+    func body(configuration: Configuration) -> Body
+}
+
+enum CustomPickerStyleKey: EnvironmentKey {
+    static var defaultValue: any CustomPickerStyle { UnderlineStyle() }
+}
+
+extension EnvironmentValues {
+    var customPickerStyle: any CustomPickerStyle {
+        get { self[CustomPickerStyleKey.self] }
+        set { self[CustomPickerStyleKey.self] = newValue }
+    }
+}
+
+extension View {
+    func customPickerStyle<S: CustomPickerStyle>(_ value: S) -> some View {
+        environment(\.customPickerStyle, value)
+    }
+}
+
+public struct UnderlineStyle: CustomPickerStyle {
+    public func body(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(configuration.isSelected ? .accentColor : .secondary)
+            .contentShape(Rectangle())
+            .padding(.bottom, 10)
+            .overlay(alignment: .bottom) {
+                if configuration.isSelected {
+                    Rectangle()
+                        .frame(height: 2)
+                        .foregroundColor(.accentColor)
+                }
+            }
+    }
+}
+
+extension CustomPickerStyle where Self == UnderlineStyle {
+    public static var underline: Self { Self() }
+}
+
+public struct SegmentedStyle: CustomPickerStyle {
+    public func body(configuration: Configuration) -> some View {
+        configuration.label
+            .padding(8)
+            .background {
+                RoundedRectangle(cornerRadius: 4)
+                    .strokeBorder(lineWidth: 2)
+            }
+            .foregroundColor(configuration.isSelected ? Color.accentColor : .secondary)
+    }
+}
+
+extension CustomPickerStyle where Self == SegmentedStyle {
+    public static var segmented: SegmentedStyle {
+        SegmentedStyle()
+    }
+}
+
 public struct CustomPicker<Item: Hashable, ID: Hashable, V: View>: View {
-    init(items: [Item], id: KeyPath<Item, ID>, selection: Binding<Item>, @ViewBuilder view: @escaping (Item) -> V) {
+    var items: [Item]
+    var id: KeyPath<Item, ID>
+    @Binding var selection: Item
+    var view: (Item) -> V
+    @Namespace private var namespace
+    @Environment(\.customPickerStyle) private var style
+
+    init(items: [Item], id: KeyPath<Item, ID>, selection: Binding<Item>, view: @escaping (Item) -> V) {
         self.items = items
         self.id = id
         self.view = view
         self._selection = selection
     }
 
-    var items: [Item]
-    var id: KeyPath<Item, ID>
-    var view: (Item) -> V
-    @Binding var selection: Item
-    @Namespace private var namespace
-
     public var body: some View {
         VStack {
-            HStack(alignment: .top) {
+            HStack(alignment: .firstTextBaseline) {
                 ForEach(items, id: id) { item in
                     let isSelected = selection[keyPath: id] == item[keyPath: id]
                     VStack {
-                        view(item)
-                            .foregroundColor(isSelected ? .accentColor : .secondary)
-                            .contentShape(Rectangle())
-                            .padding(.bottom, 10)
-                            .overlay(alignment: .bottom) {
-                                if isSelected {
-                                    Rectangle()
-                                        .frame(height: 2)
-                                        .foregroundColor(.accentColor)
-                                }
-                            }
+                        AnyView(style
+                            .body(configuration: .init(namespace: namespace, isSelected: isSelected, label: .init(view(item)))))
                     }
                     .onTapGesture {
                         selection = item
@@ -42,7 +101,7 @@ public struct CustomPicker<Item: Hashable, ID: Hashable, V: View>: View {
 }
 
 public extension CustomPicker where Item: Identifiable, Item.ID == ID {
-    init(items: [Item], selection: Binding<Item>, @ViewBuilder view: @escaping (Item) -> V) {
+    init(items: [Item], view: @escaping (Item) -> V, selection: Binding<Item>) {
         self.items = items
         self.id = \Item.id
         self.view = view
@@ -50,32 +109,18 @@ public extension CustomPicker where Item: Identifiable, Item.ID == ID {
     }
 }
 
-enum Mailbox: CaseIterable, Hashable, Identifiable {
-    case inbox
-    case spam
+struct StylableSimplePicker_Previews: PreviewProvider {
+    static var previews: some View {
+        WithState("One") { $state in
+            let picker = CustomPicker(items: ["One", "Two", "Three"], id: \.self, selection: $state, view: {
+                Text($0)
+            })
+            .padding()
 
-    var id: Self { self }
-}
-
-var sample: some View {
-    VStack {
-        WithState("Inbox") { $binding in
-            CustomPicker(items: ["Inbox", "Two", "Three"], id: \.self, selection: $binding, view: { Text($0) })
-        }
-        WithState(Mailbox.inbox) { $value in
-            CustomPicker(items: Mailbox.allCases, selection: $value) { box in
-                switch box {
-                case .inbox: Label("Inbox", systemImage: "tray")
-                case .spam: Label("Spam", systemImage: "tray.fill")
-                }
+            VStack {
+                picker
+                picker.customPickerStyle(.segmented)
             }
         }
-    }
-    .padding()
-}
-
-struct CustomPickerPreview: PreviewProvider {
-    static var previews: some View {
-        sample
     }
 }

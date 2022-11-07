@@ -22,6 +22,7 @@
 		17DC1C452913B8F400E1EEDB /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C432913B8F400E1EEDB /* Detail.swift */; };
 		17DC1C462913B8F400E1EEDB /* DateStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C442913B8F400E1EEDB /* DateStepper.swift */; };
 		17DC1C482913B93C00E1EEDB /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C472913B93C00E1EEDB /* CustomPicker.swift */; };
+		17DC1C4A2913BB2D00E1EEDB /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DC1C492913BB2D00E1EEDB /* Stylesheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		17DC1C432913B8F400E1EEDB /* Detail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		17DC1C442913B8F400E1EEDB /* DateStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateStepper.swift; sourceTree = "<group>"; };
 		17DC1C472913B93C00E1EEDB /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		17DC1C492913BB2D00E1EEDB /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				17DC1C442913B8F400E1EEDB /* DateStepper.swift */,
 				17DC1C432913B8F400E1EEDB /* Detail.swift */,
 				17DC1C472913B93C00E1EEDB /* CustomPicker.swift */,
+				17DC1C492913BB2D00E1EEDB /* Stylesheet.swift */,
 				17DC1C272913AE4D00E1EEDB /* Assets.xcassets */,
 				17DC1C292913AE4D00E1EEDB /* Health.entitlements */,
 				17DC1C2A2913AE4D00E1EEDB /* Preview Content */,
@@ -183,6 +186,7 @@
 				17DC1C352913AECC00E1EEDB /* DateModel.swift in Sources */,
 				17DC1C372913AECC00E1EEDB /* WithState.swift in Sources */,
 				17DC1C392913B00D00E1EEDB /* Dashboard.swift in Sources */,
+				17DC1C4A2913BB2D00E1EEDB /* Stylesheet.swift in Sources */,
 				17DC1C452913B8F400E1EEDB /* Detail.swift in Sources */,
 				17DC1C362913AECC00E1EEDB /* Model.swift in Sources */,
 			);
